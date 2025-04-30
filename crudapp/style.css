@@ -1,0 +1,29 @@
+#main_title
+{
+    text-align: center;
+  background-color: rgb(69, 74, 74);
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+.box1 h2 
+{
+ float: left;
+}
+.box1 button
+{
+  float: right;
+}
+.container
+{
+  margin-top: 50px;
+}
+h6
+{
+  text-align: center;
+  color: red;
+}
+.custom-modal-dialog {
+  max-width: 800px; /* Adjust the width as needed */
+  width: 100%; /* Ensures it takes full width up to max-width */
+}
