@@ -12,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(to right, black ,  #7f1430);
+    background: linear-gradient(to right, white ,  #00bfd8);
 }
 h6
 {
@@ -32,7 +32,7 @@ h6
 
 .left-side {
     width: 50%;
-    background: linear-gradient(to right, black,#7f1430 );
+    background: linear-gradient(to right, white,#00bfd8 );
     color: white;
     text-align: center;
     padding: 50px 30px;
@@ -94,7 +94,7 @@ h6
 .btn {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(to right, black, #7f1430);
+    background: linear-gradient(to right, white, #00bfd8);
     color: white;
     border: none;
     font-size: 16px;

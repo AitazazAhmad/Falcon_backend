@@ -26,7 +26,7 @@ $query = "SELECT * FROM `user_data` WHERE `name` = '$name' AND `email` = '$mail'
     }
     else
     {
-        header('location:./../falcon_backend/user_login/signin.php');
+        header('location:error_msg.php');
     }
  }
 
