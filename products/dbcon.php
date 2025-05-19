@@ -5,5 +5,4 @@ if($connection == false)
 {
     die("connection Error:".mysqli_connect_error());
 }
-
-?>the
+?>

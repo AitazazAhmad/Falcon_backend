@@ -16,11 +16,7 @@ if(isset($_GET['message']))
                 <form id="signup-form" action = "user_login_process.php" method = "post" class = "form">
                     <div class="input-box">
                         <i class="fas fa-user"></i>
-                        <input type="text" id="Name" placeholder="Name" required name = "Name">
-                    </div>
-                    <div class="input-box">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" id="E_mail" placeholder="E-mail" required name = "E_mail">
+                        <input type="text" id="Name" placeholder="User Name" required name = "Name">
                     </div>
                     <div class="input-box">
                         <i class="fas fa-lock"></i>

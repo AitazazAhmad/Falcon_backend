@@ -4,12 +4,11 @@
 if(isset($_POST['login']))
 {
     $name = $_POST['Name'];
-    $mail = $_POST['E_mail'];
     $password = $_POST['password'];
     echo $username;
 }
 
-$query = "SELECT * FROM `user_data` WHERE `name` = '$name' AND `email` = '$mail' AND `password` = '$password'";
+$query = "SELECT * FROM `user_data` WHERE `name` = '$name'  AND `password` = '$password'";
 
  $result = mysqli_query($connection, $query);
  if(!$result)
