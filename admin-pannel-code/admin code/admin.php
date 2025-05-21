@@ -322,7 +322,9 @@
     <div id="adminContent">
         <a href="http://localhost:8080/falcon_backend/crudapp/" id="logoutBtn">Add Employees</a>
         <button id="logoutBtn" onclick="logout()">Logout</button>
-        <button type="submit" onclick="add_products.php">add products</button>
+        <div class="button">
+        <a href="http://localhost:8080/falcon_backend/products/index.php">Add products</a>
+        </div>
         <h1>Admin Panel - Orders</h1>
         <div id="loading">Loading orders...</div>
         <table id="ordersTable" style="display: none;">

@@ -43,6 +43,7 @@
                             </div>
                             <div class="form-group mb-3">
                                 <button type="submit" name="save_image" class="btn btn-primary">Save product</button>
+                                <a href="http://localhost:8080/falcon_backend/products/home.php" class="btn btn-primary">See products</a>
                             </div>
                         </form>
                     </div>
