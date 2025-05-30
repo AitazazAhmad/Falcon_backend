@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Create a stylish landing page for your business startup and get leads for the offered services with this HTML landing page template.">
+    <meta name="author" content="Inovatik">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+    <meta property="og:site_name" content="FDE - FALCON DYNAMIC ENGINEERING" /> <!-- website name -->
+    <meta property="og:site" content="www.fdeworks.com" /> <!-- website link -->
+    <meta property="og:title" content="FDE - FALCON DYNAMIC ENGINEERING" />
+    <!-- title shown in the actual shared post -->
+    <meta property="og:description" content="Electro-Mech Engineering Services" />
+    <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+    <meta property="og:type" content="article" />
+
+    <!-- Website Title -->
+    <title>FDE - FALCON DYNAMIC ENGINEERING</title>
+
+    <!-- Styles -->
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,600,700,700i&amp;subset=latin-ext"
+        rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <!-- <link href="css/swiper.css" rel="stylesheet"> -->
+    <!-- <link href="css/magnific-popup.css" rel="stylesheet"> -->
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- Boxicons CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+
+    <!-- Favicon  -->
+    <link rel="icon" href="images/falcon.png">
+</head>
+<style>
+    .container_2 {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .icon-cart {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        color: black;
+    }
+
+    .i {
+        width: 37px;
+        height: 37px;
+    }
+
+    .icon-cart span {
+        background-color: #00bfd8;
+        color: rgb(255, 255, 255);
+        padding: 8px;
+        border-radius: 50%;
+        margin-left: 10px;
+        font-size: 19px;
+        font-weight: bold;
+    }
+
+    .listProduct {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .item {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .item img {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
+    .cartTab {
+        margin-top: 80px;
+        margin-bottom: 28px;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        width: 400px;
+        max-width: 90vw;
+        background-color: rgb(251, 251, 251);
+        color: #000;
+        display: flex;
+        flex-direction: column;
+        transition: right 0.3s ease-in-out;
+        box-shadow: 1px 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+        border-radius: 6px 0 0 6px;
+    }
+
+    body.showCart .cartTab {
+        right: 0;
+    }
+
+    .cartTab h1 {
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin: 20px 0;
+        border-bottom: 1px solid #b9b9b9;
+        padding-bottom: 10px;
+    }
+
+    .cartTab .listCart {
+        flex: 1;
+        overflow-y: auto;
+        padding: 15px;
+    }
+
+    .cartTab .listCart .item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        background: #ffffff;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .cartTab .listCart .item .image {
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        /* Added drop shadow */
+    }
+
+    .cartTab .listCart .item .image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .cartTab .listCart .item .details {
+        flex: 1;
+        margin-left: 10px;
+        color: #000;
+    }
+
+    .cartTab .listCart .item .details .name {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #000;
+    }
+
+    .cartTab .listCart .item .details .price {
+        font-size: 0.8rem;
+        margin-top: 5px;
+        color: #000;
+    }
+
+    .cartTab .listCart .item .quantity {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .cartTab .listCart .item .quantity span {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background: #f3f3f3;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        line-height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-weight: 600;
+        border: none;
+        transition: background 0.3s;
+    }
+
+
+    .cartTab .listCart .item .quantity span:hover {
+        background: #f1f1f1;
+    }
+
+    .cartTab .btn {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        border-top: 1px solid #b9b9b9;
+    }
+
+    .cartTab .btn button {
+        flex: 1;
+        padding: 12px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .cartTab .btn .close {
+        margin-right: 10px;
+        background-color: #ff0015;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .cartTab .btn .close:hover {
+        background-color: #f2390a;
+    }
+
+    .cartTab .btn .checkOut {
+        border: 1px solid #00bfd8;
+        font-weight: bold;
+        background-color: #00bfd8;
+        color: #fff;
+    }
+
+    .cartTab .btn .checkOut:hover {
+        transition: 0.3s;
+        background-color: white;
+        color: #00bfd8;
+        border: 1px solid #00bfd8;
+    }
+
+    @media (max-width: 768px) {
+        .cartTab {
+            width: 100%;
+            max-width: none;
+            right: -100%;
+            border-radius: 0;
+        }
+
+        .cartTab .listCart .item {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .cartTab .listCart .item .details {
+            margin-left: 0;
+        }
+
+        .cartTab .btn {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cartTab .btn button {
+            font-size: 0.9rem;
+        }
+    }
+
+    .listProduct {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        padding: 20px 0;
+        margin: 15px;
+    }
+
+    .listProduct .item {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .listProduct .item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.12);
+    }
+
+    .listProduct .item img {
+        width: 100%;
+        height: 150px;
+        object-fit: contain;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    .listProduct .item h2 {
+        font-weight: 600;
+        font-size: 1.2rem;
+        margin: 10px 0;
+        color: #333;
+    }
+
+    .listProduct .item .price {
+        font-size: 23px;
+        font-weight: 700;
+        color: #000000;
+        margin: 15px 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .listProduct button {
+        background-color: #00bfd8;
+        color: white;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: 19px;
+        border: none;
+        cursor: pointer;
+        width: 120px;
+        height: 37px;
+        transition: background-color 0.3s;
+    }
+
+    .listProduct button:hover {
+        border: 2px solid #00bfd8;
+        background-color: #ffffff;
+        color: #2980b9;
+    }
+
+    .product-inquiry-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        padding: 8px 0;
+        border-top: 1px solid #ddd;
+    }
+
+    .product-inquiry {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        margin: 0;
+    }
+
+    .whatsapp-icon {
+        font-size: 31px;
+        color: #25D366;
+        /* WhatsApp green color */
+        text-decoration: none;
+        transition: transform 0.2s ease-in-out;
+        margin-left: 20px;
+    }
+
+    .whatsapp-icon:hover {
+        transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+        .listProduct {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .listProduct .item {
+            padding: 10px;
+        }
+    }
+
+    .title {
+        font-size: 35px;
+        font-weight: bold;
+        color: rgb(37, 37, 37);
+    }
+</style>
+
+<body data-spy="scroll" data-target=".fixed-top">
+
+    <!-- Preloader -->
+    <div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!-- end of preloader -->
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <!-- Text Logo - Use this if you don't have a graphic logo -->
+        <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Evolo</a> -->
+
+        <!-- Image Logo -->
+        <a class="navbar-brand logo-image" href="index.html"><img src="images/fdelogo1.png" alt="alternative"></a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-awesome fas fa-bars"></i></span>
+            <!-- <span class="navbar-toggler-awesome fas fa-times"></i></span> -->
+        </button>
+        <!-- end of mobile menu toggle button -->
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="index.html">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#products">Products</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link page-scroll" href="admin.html">Admin</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#request">Request</a>
+                </li>
+
+                <!-- Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle page-scroll" href="#about" id="navbarDropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">About</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="terms-conditions.html"><span class="item-text">Terms
+                                Conditions</span></a>
+                        <div class="dropdown-items-divide-hr"></div>
+                        <a class="dropdown-item" href="privacy-policy.html"><span class="item-text">Privacy
+                                Policy</span></a>
+                    </div>
+                </li>
+                <!-- end of dropdown menu -->
+
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle page-scroll" href="#" id="navbarDropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">Login</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../admin-pannel-code/admin code/admin.html" target="_blank"><span class="item-text">Admin</span></a>
+                        <div class="dropdown-items-divide-hr"></div>
+                        <a class="dropdown-item" href="#"><span class="item-text">Employee</span></a>
+                    </div>
+                </li>
+            </ul>
+            <span class="nav-item social-icons">
+                <span class="fa-stack">
+                    <a href="https://www.facebook.com/Falcon-Dynamic-Engineering-229595891815461">
+                        <i class="fas fa-circle fa-stack-2x facebook"></i>
+                        <i class="fab fa-facebook-f fa-stack-1x"></i>
+                    </a>
+                </span>
+                <span class="fa-stack">
+                    <a href="#your-link">
+                        <i class="fas fa-circle fa-stack-2x twitter"></i>
+                        <i class="fab fa-twitter fa-stack-1x"></i>
+                    </a>
+                </span>
+            </span>
+        </div>
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="header-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="text-container">
+                            <h1><span class="turquoise">FALCON DYNAMIC ENGINEERING</span><br> We Ignite The Future</h1>
+                            <p class="p-large">FDE Works is provided professional Industrial Sevcies in Electrical and
+                                Mechanical Engineering fields. FDE provide Automation, Electrical Works, Mechanical
+                                Works and Heating Solutions for Industries.</p>
+                            <!-- <a class="btn-solid-lg page-scroll" href="#services">DISCOVER</a> -->
+                        </div> <!-- end of text-container -->
+                    </div> <!-- end of col -->
+                    <div class="col-lg-6">
+                        <div class="image-container">
+                            <img class="img-fluid" src="images/header-teamwork.svg" alt="alternative">
+                        </div> <!-- end of image-container -->
+                    </div> <!-- end of col -->
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of header-content -->
+    </header> <!-- end of header -->
+    <!-- end of header -->
+
+    <!-- products -->
+
+    <div class="basic-10">
+
+        <div class="container_2">
+            <header style="display: flex; justify-content: space-between;">
+                <div></div>
+                <div class="title">Our Products</div>
+                <div class="icon-cart">
+                    <svg class="i" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+                    </svg>
+                    <span>0</span>
+                </div>
+            </header>
+
+            <div class="listProduct">
+                <div class="item">
+                    <img src="image1.jpg" alt="Product Image">
+                    <h2>Product 1</h2>
+                    <div class="price">£120</div>
+                    <button class="addCart">Add to Cart</button>
+                    <button class="whatsapp-inquiry" data-name="Product 1" data-price="120" data-number="1234567890">
+                        WhatsApp Inquiry
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="cartTab">
+            <h1>Shopping Cart</h1>
+            <div class="listCart"></div>
+            <div class="btn">
+                <button class="close">Close</button>
+                <button class="checkOut">Checkout</button>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="footer-col middle">
+                        <h4>Social Media</h4>
+                        <span class="fa-stack">
+                            <a href="#https://www.facebook.com/Falcon-Dynamic-Engineering-229595891815461">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-google-plus-g fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-instagram fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin-in fa-stack-1x"></i>
+                            </a>
+                        </span>
+                    </div>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of footer -->
+    <!-- end of footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.9.1/dist/pocketbase.min.js"></script>
+
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/validator.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        let iconCart = document.querySelector('.icon-cart');
+        let closeCart = document.querySelector('.close');
+        let body = document.querySelector('body');
+        let listProductHTML = document.querySelector('.listProduct');
+        let listCartHtml = document.querySelector('.listCart');
+        let iconCartSpan = document.querySelector('.icon-cart span');
+        let listProducts = [];
+        let carts = [];
+        document.addEventListener("DOMContentLoaded", () => {
+            let cartPanel = document.querySelector('.cartTab');
+            let addCartButtons = document.querySelectorAll('.addCart');
+
+            document.addEventListener("click", (event) => {
+                let isClickInsideCart = cartPanel.contains(event.target);
+                let isClickOnCartIcon = iconCart.contains(event.target);
+                let isClickOnAddToCart = event.target.classList.contains("addCart") || event.target.closest(".addCart");
+
+                if (!isClickInsideCart && !isClickOnCartIcon && !isClickOnAddToCart) {
+                    body.classList.remove('showCart');
+                }
+            });
+
+            closeCart.addEventListener('click', () => {
+                body.classList.remove('showCart');
+            });
+
+            iconCart.addEventListener('click', (event) => {
+                event.stopPropagation();
+                body.classList.toggle('showCart');
+            });
+            cartPanel.addEventListener('click', (event) => {
+                event.stopPropagation();
+            });
+        });
+        const addDataToHTML = () => {
+            listProductHTML.innerHTML = '';
+
+            if (listProducts.length > 0) {
+                listProducts.forEach(product => {
+                    let newProduct = document.createElement('div');
+                    newProduct.classList.add('item');
+                    newProduct.dataset.id = product.id;
+                    newProduct.innerHTML = `
+                <img src="${product.image}">
+                <h2>${product.name}</h2>
+                <p>${product.description}</p>
+                <div class="price">${product.price} $</div>
+                <button class="addCart">Add to Cart</button>
+
+                <!-- Product Inquiry Section (Bottom) -->
+                <div class="product-inquiry-container">
+                    <h3 class="product-inquiry">Product Inquiry</h3>
+                    <a href="https://wa.me/${product.whatsapp_number || '923226760480'}?text=${encodeURIComponent('Hello, I am interested in ' + product.name + '. Can you provide more details?')}" 
+                       target="_blank" class="whatsapp-icon">
+                        <i class='bx bxl-whatsapp'></i>
+                    </a>
+                </div>
+            `;
+                    listProductHTML.appendChild(newProduct);
+                });
+                document.querySelectorAll(".addCart").forEach(button => {
+                    button.addEventListener("click", function () {
+                        let product_id = this.parentElement.dataset.id;
+                        addToCart(product_id);
+                    });
+                });
+            }
+        };
+        // Add to Cart Function
+        const addToCart = (product_id) => {
+            let positionThisProductInCart = carts.findIndex((value) => value.product_id === product_id);
+
+            if (positionThisProductInCart < 0) {
+                carts.push({ product_id: product_id, quantity: 1 });
+            } else {
+                carts[positionThisProductInCart].quantity += 1;
+            }
+
+            addCartToHTML();
+            addCartToMemory();
+        };
+        const addCartToMemory = () => {
+            localStorage.setItem('cart', JSON.stringify(carts));
+        };
+        const addCartToHTML = () => {
+            listCartHtml.innerHTML = '';
+            let totalQuantity = 0;
+
+            if (carts.length > 0) {
+                carts.forEach(cart => {
+                    totalQuantity += cart.quantity;
+                    let newCart = document.createElement('div');
+                    newCart.classList.add('item');
+                    newCart.dataset.id = cart.product_id;
+
+                    let positionProduct = listProducts.findIndex((value) => value.id == cart.product_id);
+                    let info = listProducts[positionProduct];
+
+                    newCart.innerHTML = `
+                <div class="image">
+                    <img src="${info.image}">
+                </div>
+                <div class="name">${info.name}</div>
+                <div class="totalPrice">${info.price * cart.quantity} $</div>
+                <div class="quantity">
+                    <span class="minus"> - </span>
+                    <span>${cart.quantity}</span>
+                    <span class="plus"> + </span>
+                </div>
+            `;
+
+                    listCartHtml.appendChild(newCart);
+                });
+                document.querySelectorAll(".plus").forEach(button => {
+                    button.addEventListener("click", function () {
+                        let product_id = this.closest('.item').dataset.id;
+                        changeQuantity(product_id, 'plus');
+                    });
+                });
+
+                document.querySelectorAll(".minus").forEach(button => {
+                    button.addEventListener("click", function () {
+                        let product_id = this.closest('.item').dataset.id;
+                        changeQuantity(product_id, 'minus');
+                    });
+                });
+            }
+
+            iconCartSpan.innerText = totalQuantity;
+        };
+        const changeQuantity = (product_id, type) => {
+            let positionItemInCart = carts.findIndex((value) => value.product_id == product_id);
+
+            if (positionItemInCart >= 0) {
+                if (type === 'plus') {
+                    carts[positionItemInCart].quantity += 1;
+                } else {
+                    let valueChange = carts[positionItemInCart].quantity - 1;
+                    if (valueChange > 0) {
+                        carts[positionItemInCart].quantity = valueChange;
+                    } else {
+                        carts.splice(positionItemInCart, 1);
+                    }
+                }
+            }
+            addCartToMemory();
+            addCartToHTML();
+        };
+        document.querySelector('.checkOut').addEventListener('click', () => {
+            if (carts.length === 0) {
+                alert("Your cart is empty! Add some products first.");
+                return;
+            }
+            window.location.href = 'checkout.html';
+        });
+        const initApp = () => {
+            fetch('products.json')
+                .then(response => response.json())
+                .then(data => {
+                    listProducts = data;
+                    addDataToHTML(); // Render Products
+
+                    if (localStorage.getItem('cart')) {
+                        carts = JSON.parse(localStorage.getItem('cart'));
+                        addCartToHTML();
+                    }
+                });
+        };
+        initApp();
+    </script>
+</body>
+
+</html>

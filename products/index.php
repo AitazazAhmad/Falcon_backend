@@ -39,7 +39,7 @@
                             </div>
                             <label for="">Choose product</label>
                             <div class="form-group mb-3">
-                                <input type="file" class="form-control" placeholder="Add product" name="image">
+                                <input type="file" class="form-control" placeholder="Add product" name="image" accept=".jpj, .png , .jpeg ," >
                             </div>
                             <div class="form-group mb-3">
                                 <button type="submit" name="save_image" class="btn btn-primary">Save product</button>

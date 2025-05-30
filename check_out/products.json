@@ -1,0 +1,146 @@
+[
+    {
+        "id":1,
+        "name":"Siemens SIMATIC PLC",
+        "description": "Company: Siemens, Model: S7-1200, Type: DC-DC-DC",
+        "price": 0,
+        "image": "./images/7.jpeg"
+    },
+    {
+        "id":2,
+        "name":"Extension Module",
+        "description": "Company: Siemens, Extension module, Type: Single",
+        "price": 80,
+        "image": "./images/8.jpeg"
+    },
+    {
+        "id":3,
+        "name":"Extension Module",
+        "description": "Company: Siemens, Extension module, Type: Special",
+        "price": 90,
+        "image": "./images/9.jpeg"
+    },
+    {
+        "id":4,
+        "name":"Siemens SIMATIC PLC",
+        "description": "Company: Siemens, Model: S7-200, Type: DC-DC-DC/AC-DC/RLY",
+        "price": 85,
+        "image": "./images/10.jpeg"
+    },
+    {
+        "id":5,
+        "name":"Analog Expansion Module",
+        "description": "Company: Siemens, Digital Expansion Modules, Digital mixed expansion modules,Analog Expansion Modules,Analog Mixed Expansion Modules,Thermocouple Module, RTD Module, Communication Module",
+
+        "price": 100,
+        "image": "./images/11.jpeg"
+    },
+    {
+        "id":6,
+        "name":"HMI",
+        "description": "Company: Weintek, Size: 7 inch and 10 inch",
+
+        "price": 135,
+        "image": "./images/12.jpeg"
+    },
+    {
+        "id":7,
+        "name":"PLC",
+        "description": "Company: Mitsubishi, Series: iQ-R",
+        "price": 110,
+        "image": "./images/13.jpeg"
+    },
+    {
+        "id":8,
+        "name":"PLC",
+        "description": "Company: Mitsubishi, Series: iQ-F",
+        "price": 105,
+        "image": "./images/14.jpeg"
+    },
+    
+    {
+        "id":9,
+        "name":"PLC",
+        "description": "Company: Mitsubishi, Series: Q",
+        "price": 105,
+        "image": "./images/15.jpeg"
+
+    },
+    {
+        "id":10,
+        "name":"PLC",
+        "description": "Company: Mitsubishi, Series: L",
+        "price": 105,
+        "image": "./images/16.jpeg"
+    },
+    {
+        "id":11,
+        "name":"PLC",
+        "description": "Company: Mitsubishi, Series: F",
+        "price": 105,
+        "image": "./images/17.jpeg"
+    },
+    {
+        "id":12,
+        "name":"PLC",
+        "description": "Company: Mitsubishi, Series: QS/WS",
+        "price": 105,
+        "image": "./images/18.jpeg"
+    },
+    {
+        "id":13,
+        "name":"PLC",
+        "description": "Company: Mitsubishi, Series: A",
+        "price": 105,
+        "image": "./images/19.jpeg"
+    },
+    {
+        "id":14,
+        "name":"Temperature Sensor",
+        "description": "Thermocouple, PT100/PT1000 Thermocouple, Platinum Rhodium Thermocouple, Stainless Steel Thermocouple, K Type Thermocouple, Thread Thermocouple, M5/M6/M8 Thermocouple, Bayonet Spring Thermocouple, N Type Thermocouple, T Type Thermocouple",
+        "price": 105,
+        "image": "./images/20.jpeg"
+    },
+    {
+        "id":15,
+        "name":"Temperature Sensor",
+        "description": "PT 100",
+        "price": 105,
+        "image": "./images/21.jpeg"
+    },
+    {
+        "id":16,
+        "name":"Contactors",
+        "description": "Comapny: Siemens, Pole: 3/4, Amp: 16-2650",
+        "price": 105,
+        "image": "./images/22.jpeg"
+    },
+    {
+        "id":17,
+        "name":"Contactors",
+        "description": "Comapny: Fuji, Pole: 3/4, Amp: 20-800",
+        "price": 105,
+        "image": "./images/23.jpeg"
+    },
+    {
+        "id":18,
+        "name":"Contactors",
+        "description": "Comapny: Schnieders, Pole: 3/4, Amp: 9-800",
+        "price": 105,
+        "image": "./images/24.jpeg"
+    },
+    {
+        "id":19,
+        "name":"Contactors",
+        "description": "Comapny: LS, Pole: 3/4, Amp: 7-1450",
+        "price": 105,
+        "image": "./images/25.jpeg"
+    },
+    {
+        "id":20,
+        "name":"Pressure Transmitter",
+        "description": "Comapny: Honeywell, Pressure: 0-210 Bar",
+        "price": 105,
+        "image": "./images/26.jpeg"
+    } 
+]

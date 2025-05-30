@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,600,700,700i&amp;subset=latin-ext"
+        rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link href="css/swiper.css" rel="stylesheet">
+    <link href="css/magnific-popup.css" rel="stylesheet">
+    <!-- Boxicons CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+
+
+    <link rel="icon" href="images/falcon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .navbar-custom {
+            background-color: #fff;
+            box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
+            font: 600 0.875rem/0.875rem "Raleway", sans-serif;
+            transition: all 0.2s;
+        }
+
+        .navbar-custom .navbar-brand.logo-image img {
+            width: 7.4375rem;
+            height: 2rem;
+        }
+
+        .navbar-custom .navbar-brand.logo-text {
+            font: 600 2rem/1.5rem "Raleway", sans-serif;
+            color: #393939;
+            text-decoration: none;
+        }
+
+        .navbar-custom .navbar-nav {
+            margin-top: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .navbar-custom .nav-item .nav-link {
+            padding: 0.625rem 0.75rem 0.625rem 0.75rem;
+            font-size: 18px;
+            color: #393939;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .navbar-custom .nav-item .nav-link:hover,
+        .navbar-custom .nav-item .nav-link.active {
+            color: #00bfd8;
+        }
+
+        .navbar-custom .dropdown:hover>.dropdown-menu {
+            display: block;
+            min-width: auto;
+            animation: fadeDropdown 0.2s;
+        }
+
+        @keyframes fadeDropdown {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .navbar-custom .dropdown-toggle:focus {
+            outline: 0;
+        }
+
+        .navbar-custom .dropdown-menu {
+            margin-top: 0;
+            border: none;
+            border-radius: 0.25rem;
+            background-color: #fff;
+        }
+
+        .navbar-custom .dropdown-item {
+            color: #393939;
+            text-decoration: none;
+        }
+
+        .navbar-custom .dropdown-item:hover {
+            background-color: #fff;
+        }
+
+        .navbar-custom .dropdown-item .item-text {
+            font: 600 0.875rem/0.875rem "Raleway", sans-serif;
+        }
+
+        .navbar-custom .dropdown-item:hover .item-text {
+            color: #00bfd8;
+        }
+
+        .navbar-custom .dropdown-items-divide-hr {
+            width: 100%;
+            height: 1px;
+            margin: 0.75rem auto 0.725rem auto;
+            border: none;
+            background-color: #c4d8dc;
+            opacity: 0.2;
+        }
+
+        .navbar-custom .social-icons {
+            display: none;
+        }
+
+        .navbar-custom .navbar-toggler {
+            border: none;
+            color: #393939;
+            font-size: 2rem;
+
+        }
+
+        .navbar-custom .navbar-toggler .navbar-custom button[aria-expanded='false'] .navbar-toggler-awesome.fas.fa-times {
+            display: none;
+        }
+
+        .navbar-custom button[aria-expanded='false'] .navbar-toggler-awesome.fas.fa-bars {
+            display: inline-block;
+        }
+
+        .navbar-custom button[aria-expanded='true'] .navbar-toggler-awesome.fas.fa-bars {
+            display: none;
+        }
+
+        .navbar-custom button[aria-expanded='true'] .navbar-toggler-awesome.fas.fa-times {
+            display: inline-block;
+            margin-right: 0.125rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            margin-top: 90px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .order-form {
+            flex: 1.5;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .small-input {
+            width: 35%;
+        }
+
+        .extra-small-input {
+            width: 25%;
+        }
+
+        .cart-section {
+            flex: 1;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 12px;
+        }
+
+        .cart-item img {
+            width: 70px;
+            height: 70px;
+            margin-right: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .cart-item-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-total,
+        .cart-summary {
+            font-weight: bold;
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .cart-summary {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 2px solid #ddd;
+        }
+
+        .grand-total {
+            font-size: 18px;
+            color: #d9534f;
+        }
+
+        .payment-method {
+            font-weight: bold;
+            font-size: 21px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .payment-option p {
+            margin: 5px;
+            font-size: 19px;
+            font-weight: normal;
+        }
+
+        .payment-option input[type="checkbox"] {
+            width: 17px;
+            height: 17px;
+            margin-left: 10px;
+            accent-color: #00aee8;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .place-order-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #00aee8;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 24px;
+            width: auto;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .place-order-btn:hover {
+            background-color: transparent;
+            color: #00aee8;
+            border: 2px solid #00aee8;
+            transition: 0.2s;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .order-form,
+            .cart-section {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .cart-item img {
+                width: 60px;
+                height: 60px;
+            }
+
+            input,
+            select {
+                padding: 10px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 22px;
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    margin-top: 100px;
+                    /* Increase margin for smaller devices if needed */
+                }
+            }
+
+            .order-form,
+            .cart-section {
+                padding: 15px;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cart-item img {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 5px;
+            }
+
+            .cart-summary p {
+                font-size: 14px;
+            }
+
+            .place-order-btn {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+
+            .container {
+                gap: 10px;
+            }
+
+            .input-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .small-input,
+            .extra-small-input {
+                width: 100%;
+            }
+
+            .cart-item {
+                font-size: 14px;
+            }
+
+            .place-order-btn {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            h1 {
+                font-size: 18px;
+            }
+
+            .order-form,
+            .cart-section {
+                padding: 12px;
+            }
+
+            input,
+            select {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .cart-summary p {
+                font-size: 12px;
+            }
+
+            .place-order-btn {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- <h1>Place Your Order</h1> -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <!-- Image Logo -->
+        <a class="navbar-brand logo-image" href="index.html"><img src="images/fdelogo1.png" alt="alternative"></a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-awesome fas fa-bars"></i></span>
+            <!-- <span class="navbar-toggler-awesome fas fa-times"></i></span> -->
+        </button>
+        <!-- end of mobile menu toggle button -->
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="index.html">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="index.html#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="products.html">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#request">Request</a>
+                </li>
+
+                <!-- Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle page-scroll" href="#about" id="navbarDropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">About</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="terms-conditions.html"><span class="item-text">Terms
+                                Conditions</span></a>
+                        <div class="dropdown-items-divide-hr"></div>
+                        <a class="dropdown-item" href="privacy-policy.html"><span class="item-text">Privacy
+                                Policy</span></a>
+                    </div>
+                </li>
+                <!-- end of dropdown menu -->
+
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#contact">Contact</a>
+                </li>
+            </ul>
+            <span class="nav-item social-icons">
+                <span class="fa-stack">
+                    <a href="https://www.facebook.com/Falcon-Dynamic-Engineering-229595891815461">
+                        <i class="fas fa-circle fa-stack-2x facebook"></i>
+                        <i class="fab fa-facebook-f fa-stack-1x"></i>
+                    </a>
+                </span>
+                <span class="fa-stack">
+                    <a href="#your-link">
+                        <i class="fas fa-circle fa-stack-2x twitter"></i>
+                        <i class="fab fa-twitter fa-stack-1x"></i>
+                    </a>
+                </span>
+            </span>
+        </div>
+    </nav>
+    <div class="container">
+        <!-- Order Form -->
+        <div class="order-form">
+          <form id="orderForm" method="post" action="store_checkout.php">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your Name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone" placeholder="Enter your Phone" required>
+
+        <label for="address">Address & State</label>
+        <div class="input-group">
+            <input type="text" id="address" name="address" placeholder="Enter your address" required>
+            <select id="state" name="state" class="small-input" required>
+                <option value="">State</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Sindh">Sindh</option>
+                <option value="Balochistan">Balochistan</option>
+                <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+                <option value="Federal Territory / Islamabad">Islamabad</option>
+            </select>
+        </div>
+
+        <label for="zonecode">Zone Code</label>
+        <input type="text" id="zonecode" name="zonecode" class="extra-small-input" placeholder="Enter zonecode" required>
+    </div>
+
+    <!-- Cart Items -->
+    <div class="cart-section" name="cart">
+        <h2>Your Cart</h2>
+        <div id="cartItems"></div>
+        <div class="cart-total" id="cartTotal"></div>
+
+        <div class="cart-summary">
+            <p>Subtotal: <span id="subtotal"></span> $</p>
+            <p>Shipping: <strong>10 $</strong></p>
+            <p class="grand-total">Grand Total: <span id="grandTotal"></span> $</p>
+        </div>
+
+        <!-- Payment Method -->
+        <h3 class="payment-method">Payment Method</h3>
+        <!-- <div class="payment-option">
+            <p>Cash on Delivery</p>
+            <input type="checkbox" id="cashOnDelivery" name="payment-method" value="cashOnDelivery">
+            <p>Online Payment</p>
+            <input type="checkbox" id="onlinepayment" name="payment-method" value="onlinepayment">
+        </div> -->
+        <div>
+            <label for="cashOnDelivery">Cash On Delivery
+            <input type="radio" id="cashOnDelivery" name="payment-method" value="cashOnDelivery">
+            </label>
+            <label for="cashOnDelivery">Online Payment
+                <input type="radio" id="cashOnDelivery" name="payment-method" value="cashOnDelivery">
+                </label>
+        </div>
+    </div>
+
+    <button id="placeOrder" class="place-order-btn" type="submit" name="store_checkout">Place Order</button>
+</form>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/pocketbase/dist/pocketbase.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script>
+        emailjs.init("w-Dv3Ne-PyKSFoGKT");
+
+        const cartItemsDiv = document.getElementById('cartItems');
+        const subtotalDiv = document.getElementById('subtotal');
+        const grandTotalDiv = document.getElementById('grandTotal');
+        let carts = JSON.parse(localStorage.getItem('cart')) || [];
+        let listProducts = [];
+
+        fetch('products.json')
+            .then(response => response.json())
+            .then(products => {
+                listProducts = products;
+                displayCartDetails();
+            });
+
+        const displayCartDetails = () => {
+            let total = 0;
+            cartItemsDiv.innerHTML = '';
+
+            carts.forEach(cart => {
+                const product = listProducts.find(item => item.id == cart.product_id);
+                if (!product) return;
+
+                total += product.price * cart.quantity;
+
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <div class="cart-item-details">
+                        <strong>${product.name}</strong> (x ${cart.quantity})
+                        <p>${product.description}</p>
+                        <div><strong>${product.price * cart.quantity} $</strong></div>
+                    </div>
+                `;
+                cartItemsDiv.appendChild(cartItem);
+            });
+
+            subtotalDiv.innerText = total;
+            grandTotalDiv.innerText = total + 10;
+        };
+
+        document.getElementById('placeOrder').addEventListener('click', async () => {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let phone = document.getElementById('phone').value;
+            let address = document.getElementById('address').value;
+            let state = document.getElementById('state').value;
+            let zonecode = document.getElementById('zonecode').value;
+            let cashOnDelivery = document.getElementById('cashOnDelivery').checked;
+
+            let orderCart = carts.map(cart => {
+                const product = listProducts.find(item => item.id == cart.product_id);
+                return {
+                    product_id: cart.product_id,
+                    name: product ? product.name : "Unknown",
+                    description: product ? product.description : "No description available",
+                    quantity: cart.quantity,
+                    price: product ? product.price : 0
+                };
+            });
+
+            let totalPrice = parseFloat(grandTotalDiv.innerText);
+
+            let orderDetails = orderCart.map(item =>
+                `${item.name} (x${item.quantity}) - ${item.price * item.quantity} $`
+            ).join("\n");
+
+            let orderData = {
+                name, email, phone, address, state, zonecode, cashOnDelivery,
+                cart: orderCart,
+                totalPrice,
+                orderDate: new Date().toISOString()
+            };
+
+            try {
+                await pb.collection('orders').create(orderData);
+                emailjs.send("service_qw8egjf", "template_m7fjlns", {
+                    user_name: name,
+                    user_email: email,
+                    user_phone: phone,
+                    user_address: address,
+                    user_state: state,
+                    user_zonecode: zonecode,
+                    order_details: orderDetails,
+                    total_price: totalPrice
+                }).then(() => {
+                    console.log("Email sent successfully!");
+                }).catch(error => {
+                    console.error("EmailJS Error:", error);
+                });
+
+                showOrderPopup(orderDetails);
+
+                localStorage.removeItem('cart');
+                displayCartDetails();
+            } catch (error) {
+                console.error("Error placing order:", error);
+                alert("Failed to place order. Please try again.");
+            }
+        });
+
+        // Order Confirmation Popup
+        function showOrderPopup(orderDetails) {
+            let popup = document.createElement('div');
+            popup.id = "orderPopup";
+            popup.innerHTML = `
+                <div class="popup-content">
+                    <h2>Order Placed Successfully!</h2>
+                    <p>Thank you for shopping with us.</p>
+                    <p><strong>Your Order:</strong></p>
+                    <pre>${orderDetails}</pre>
+                    <p>Your order will be delivered within 3-5 working days.</p>
+                    <button id="keepShoppingBtn">Keep Shopping</button>
+                </div>
+            `;
+
+            document.body.appendChild(popup);
+            document.getElementById('keepShoppingBtn').addEventListener('click', () => {
+                window.location.href = "products.html";
+            });
+            let style = document.createElement('style');
+            style.innerHTML = `
+                #orderPopup {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: white;
+                    padding: 70px;
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                    border-radius: 8px;
+                    text-align: center;
+                    z-index: 1000;
+                }
+                .popup-content h2 {
+                    color: #00aee8;
+                }
+                .popup-content pre {
+                    background: #f4f4f4;
+                    padding: 10px;
+                    border-radius: 5px;
+                    text-align: left;
+                    white-space: pre-wrap;
+                }
+                .popup-content button {
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    margin-top: 10px;
+                }
+                .popup-content button:hover {
+                    background-color: #0056b3;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    </script>
+    <script src="js/scripts.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/validator.min.js"></script>
+</body>
+
+</html>
