@@ -36,7 +36,9 @@
                                         <td><?php echo $row['name']; ?></td>
                                         <td><?php echo $row['disc']; ?></td>
                                         <td><?php echo $row['price']; ?></td>
-                                        <td><?php echo $row['image']; ?></td>
+                                        <td>
+                                            <img src="<?php echo "uploads/".$row['image']; ?>" width="75" height="75" alt="products">
+                                        </td>
 
                                     </tr>
 
