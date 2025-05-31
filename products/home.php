@@ -1,8 +1,22 @@
-<?php include('header.php'); ?>
+<?php session_start(); 
+include('header.php'); ?>
 
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
+               <?php
+                if (isset($_SESSION['status']) && $_SESSION != '') {
+                    ?>
+
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Hey!</strong><?php echo $_SESSION['status'];
+                        ?> You should check in on some of those fields below.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                    unset($_SESSION['status']);
+                }
+                ?>
             <div class="card">
                 <div class="card-header">
                     <h4>Fetch image from database</h4>
@@ -16,7 +30,8 @@
                                 <th scope="col">Product Name</th>
                                 <th scope="col">Product Description</th>
                                 <th scope="col">Product Price</th>
-                                <th scope="col">Image</th>
+                                <th scope="col">Product-Image</th>
+                                <th scope="col">Edit product-Image</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,6 +53,9 @@
                                         <td><?php echo $row['price']; ?></td>
                                         <td>
                                             <img src="<?php echo "uploads/".$row['image']; ?>" width="75" height="75" alt="products">
+                                        </td>
+                                        <td>
+                                            <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-success">Edit image</a>
                                         </td>
 
                                     </tr>

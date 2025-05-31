@@ -5,19 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
 
-                <?php
-                if (isset($_SESSION['status']) && $_SESSION != '') {
-                    ?>
-
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>Hey!</strong><?php echo $_SESSION['status'];
-                        ?> You should check in on some of those fields below.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <?php
-                    unset($_SESSION['status']);
-                }
-                ?>
+             
                 <div class="card">
                     <div class="card-header">
                         <h4>PHP PRODUCTS</h4>
