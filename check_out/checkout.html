@@ -534,10 +534,10 @@
         </div> -->
         <div>
             <label for="cashOnDelivery">Cash On Delivery
-            <input type="radio" id="cashOnDelivery" name="payment-method" value="cashOnDelivery">
+            <input type="radio" id="cashOnDelivery" name="payment_method" value="cashOnDelivery" required>
             </label>
             <label for="cashOnDelivery">Online Payment
-                <input type="radio" id="cashOnDelivery" name="payment-method" value="cashOnDelivery">
+                <input type="radio" id="cashOnDelivery" name="payment_method" value="onlinepayment" required>
                 </label>
         </div>
     </div>
@@ -546,11 +546,10 @@
 </form>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/pocketbase/dist/pocketbase.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <script>
-        emailjs.init("w-Dv3Ne-PyKSFoGKT");
+        emailjs.init("service_qw8egjf");
 
         const cartItemsDiv = document.getElementById('cartItems');
         const subtotalDiv = document.getElementById('subtotal');
@@ -626,7 +625,6 @@
             };
 
             try {
-                await pb.collection('orders').create(orderData);
                 emailjs.send("service_qw8egjf", "template_m7fjlns", {
                     user_name: name,
                     user_email: email,

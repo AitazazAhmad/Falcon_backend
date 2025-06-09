@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php include('header.php') ; ?>
+
 
 <head>
     <meta charset="UTF-8">
@@ -75,140 +77,10 @@
             font-weight: bold;
         }
 
-        /* Table Styling */
-        table {
-            width: 95%;
-            /* Increased width */
-            max-width: 1500px;
-            /* Maximum width for readability */
-            border-collapse: collapse;
-            margin-top: 20px;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin-left: auto;
-            margin-right: auto;
-        }
+       
+        
 
-        th,
-        td {
-            padding: 15px;
-            /* Increased padding */
-            border-bottom: 1px solid #ddd;
-            text-align: left;
-            font-size: 16px;
-            /* Larger text */
-            color: #444;
-        }
-
-        th {
-            background-color: #f5f7fa;
-            color: #555;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        tr {
-            background-color: white;
-            transition: 0.3s ease;
-        }
-
-        tr:hover {
-            background-color: #f1f3f5;
-        }
-
-        /* Checkboxes */
-        th:first-child,
-        td:first-child {
-            width: 50px;
-            text-align: center;
-        }
-
-        input[type="checkbox"] {
-            transform: scale(1.2);
-            cursor: pointer;
-        }
-
-        /* Buttons */
-        button {
-            padding: 10px 14px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: 0.3s ease;
-        }
-
-        .editOrder {
-            background-color: #ffc107;
-            color: black;
-        }
-
-        .editOrder:hover {
-            background-color: #e0a800;
-        }
-
-        .deleteOrder {
-            background-color: red;
-            color: white;
-        }
-
-        .deleteOrder:hover {
-            background-color: darkred;
-        }
-
-        .saveOrder {
-            background-color: #28a745;
-            color: white;
-            display: none;
-        }
-
-        .saveOrder:hover {
-            background-color: #218838;
-        }
-
-        #logoutBtn {
-            background-color: #dc3545;
-            color: white;
-            padding: 12px 18px;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s ease;
-            display: block;
-            margin: 20px auto;
-        }
-
-        #logoutBtn:hover {
-            background-color: #c82333;
-        }
-
-        /* Editable Inputs */
-        .editable-input {
-            width: 100%;
-            max-width: 250px;
-            padding: 10px 12px;
-            text-align: left;
-            border: 1px solid #ced4da;
-            border-radius: 8px;
-            font-size: 15px;
-            background-color: #ffffff;
-            margin: 8px 0;
-            transition: all 0.3s ease;
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
-        }
-
-        .editable-input:focus {
-            border-color: #007bff;
-            background-color: #f0f8ff;
-            box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
-            outline: none;
-        }
-
-        /* Admin Content */
+               /* Admin Content */
         #adminContent {
             display: none;
             margin-top: 20px;
@@ -229,14 +101,7 @@
             margin: auto;
         }
 
-        #loading {
-            text-align: center;
-            font-weight: bold;
-            padding: 12px;
-            background: #fff;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
+        
 
         /* Button Group */
         .button-group {
@@ -311,7 +176,7 @@
 
 <body>
     
-    <h1 id="pageTitle">Falcon Dynamic Admin Login</h1>
+    <h1 id="pageTitle">Falcon Dynamic Admin Pannel</h1>
 
     <form id="loginForm">
         <h2>Login</h2>
@@ -320,29 +185,47 @@
         <button type="submit">Login</button>
     </form>
     <div id="adminContent">
-        <a href="http://localhost:8080/falcon_backend/crudapp/" id="logoutBtn">Add Employees</a>
-        <button id="logoutBtn" onclick="logout()">Logout</button>
+        <a href="http://localhost:8080/falcon_backend/crudapp/"  class="btn btn-success">Add Employees</a>
+        <a href="http://localhost:8080/falcon_backend/products/index.php" class="btn btn-primary">Add products</a>
+        <a href="view_orders.php" class="btn btn-info">View Order's</a>
+        <button  class="btn btn-danger" onclick="logout()">Logout</button>
         <div class="button">
-        <a href="http://localhost:8080/falcon_backend/products/index.php">Add products</a>
         </div>
         <h1>Admin Panel - Orders</h1>
-        <div id="loading">Loading orders...</div>
+        <div id="loading"></div>
         <table id="ordersTable" style="display: none;">
-            <thead>
+             <header id="header" class="header">
+        <div class="header-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="text-container">
+                            <h1><span class="turquoise">FALCON DYNAMIC ENGINEERING</span><br> We Ignite The Future</h1>
+                            <p class="p-large">FDE Works is provided professional Industrial Sevcies in Electrical and
+                                Mechanical Engineering fields. FDE provide Automation, Electrical Works, Mechanical
+                                Works and Heating Solutions for Industries.</p>
+                            <a class="btn-solid-lg page-scroll" href="#services">DISCOVER</a>
+                        </div> <!-- end of text-container -->
+                    </div> <!-- end of col -->
+                    <div class="col-lg-6">
+                        <div class="image-container">
+                            <img class="img-fluid" src="images/header-teamwork.svg" alt="alternative">
+                        </div> <!-- end of image-container -->
+            <!-- <thead>
                 <tr>
                     <th>Order ID</th>
                     <th>Customer Name</th>
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Address</th>
-                    <th>State</th> <!-- New Field -->
-                    <th>Zone Code</th> <!-- New Field -->
+                    <th>State</th> 
+                    <th>Zone Code</th> 
                     <th>Order Details</th>
                     <th>Total Price</th>
                     <th>Order Date</th>
                     <th>Actions</th>
                 </tr>
-            </thead>
+            </thead> -->
 
             <tbody></tbody>
         </table>
@@ -545,7 +428,8 @@
                 fetchOrders();
             }
         }, 10000);
-    </script>
+        </script>
+        <?php include('footer.php') ; ?>
     </body>
 
 </html>
