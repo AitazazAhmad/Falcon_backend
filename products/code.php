@@ -65,4 +65,23 @@ else
 }
 }
 
-?>
+if(isset($_POST['delete_image']))
+{
+    $id = $_POST['id'];
+    $image = $_POST['image'];
+
+    $delete_image_query = "DELETE FROM products WHERE id='$id'";
+    $delete_image_query_run = mysqli_query($connection ,$delete_image_query );
+    if($delete_image_query_run)
+    {
+        unlink("uploads/".$image);
+        $_SESSION['status'] = "Image deleted successfully";
+        header('location: home.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "The image can't be deleted successfully";
+        header('location: home.php');
+    }
+}
+    ?>

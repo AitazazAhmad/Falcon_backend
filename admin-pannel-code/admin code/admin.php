@@ -47,6 +47,12 @@
             font-size: 16px;
             transition: all 0.3s ease;
         }
+         .container {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        padding: 20px;
+    }
 
         #loginForm input:focus {
             border-color: #007bff;

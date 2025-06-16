@@ -32,6 +32,7 @@ include('header.php'); ?>
                                 <th scope="col">Product Price</th>
                                 <th scope="col">Product-Image</th>
                                 <th scope="col">Edit product-Image</th>
+                                <th scope="col">Delete product-Image</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,6 +57,13 @@ include('header.php'); ?>
                                         </td>
                                         <td>
                                             <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-success">Edit image</a>
+                                        </td>
+                                        <td>
+                                            <form action="code.php" method="post">
+                                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                                <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
+                                            <button type="submit" class="btn btn-danger" name="delete_image">Delete image</button>
+                                            </form>
                                         </td>
 
                                     </tr>

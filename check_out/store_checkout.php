@@ -8,7 +8,7 @@ if(isset($_POST['store_checkout']))
     $addr = $_POST['address'];
     $state = $_POST['state'];
     $zonecode = $_POST['zonecode'];
-    // $cart = $_POST['cart'];
+    $cart = $_POST['orderData'];
      $payment = $_POST['payment_method'];
     
     if($name == "" || empty($name))
@@ -17,7 +17,7 @@ if(isset($_POST['store_checkout']))
     }
     else
     {
-        $query = "insert into `check_out` (`name` , `email` , `phone` , `address` , `state` , `zone_code` , `payment` ) values ('$name' , '$email' , '$phone' , '$addr' , '$state' , '$zonecode' , '$payment' )";
+        $query = "insert into `check_out` (`name` , `email` , `phone` , `address` , `state` , `zone_code` , `items` ,   `payment` ) values ('$name' , '$email' , '$phone' , '$addr' , '$state' , '$zonecode' , '$cart' , '$payment' )";
         $result = mysqli_query($connection,$query);
         if(!$result)
         {
