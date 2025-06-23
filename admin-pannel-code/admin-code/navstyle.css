@@ -1,0 +1,80 @@
+:root {
+    --bg-color: white;
+    --bg-color-2: white;
+    --text-color: black;
+}
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+button
+{
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Sidebar - Always Visible */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    max-width: 300px;
+    width: 80%;
+    height: 100%;
+    padding: 2rem;
+    background-color: var(--bg-color-2);
+    box-shadow: 0 10px 20px -4px #7a7c7f;
+    overflow-y: auto;
+}
+
+/* Sidebar content */
+.sidebar_content {
+    padding: 2.8rem 0;
+}
+
+.sidebar_body {
+    border-top: 1px dashed var(--text-color);
+    border-bottom: 1px dashed var(--text-color);
+}
+
+.side_navlinks ul {
+    display: grid;
+    gap: 2rem;
+}
+
+.side_navlinks li a {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.side_navlinks a:hover {
+    opacity: 1;
+}

@@ -2,6 +2,26 @@
 <?php include('dbcon.php') ?>
 <div class="box1">
             <h2>All Employees</h2>
+            <div id="adminContent">
+        
+    <div id="sidebar">
+        <div class="sidebar_content sidebar_head">
+            <h1>Admin</h1>
+        </div>
+
+        <div class="sidebar_content sidebar_body">
+            <nav class="side_navlinks">
+                <ul>
+                    <li><a href="http://localhost:8080/falcon_backend/admin-pannel-code/admin-code/admin.php">DashBoard</a></li>
+                    <li><a href="http://localhost:8080/falcon_backend/crudapp/">Add Employees</a></li>
+                    <li><a href="http://localhost:8080/falcon_backend/products/index.php">Add products</a></li>
+                    <li><a href="http://localhost:8080/falcon_backend/admin-pannel-code/admin-code/view_orders.php">View Order's</a></li>
+                   <li> <button id="logout-btn"  onclick="logout()">Logout</button></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
         <button  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">ADD Employees</button>
         </div>
     <table class="table table-hover table-bordered table-striped">

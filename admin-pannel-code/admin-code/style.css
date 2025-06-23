@@ -1,8 +1,16 @@
 #main_title
 {
     text-align: center;
-  background-color: rgb(69, 74, 74);
-  color: white;
+  background-color: white;
+  color: black;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+#pageTitle
+{
+  text-align: center;
+  background-color: white;
+  color: black;
   letter-spacing: 2px;
   font-weight: 500;
 }

@@ -2,7 +2,26 @@
 include('dbcon.php'); ?>
 <?php include('header.php') ;?>
      <h1 id="main_title">FALCON DYNAMIC ENGINEERING</h1>
+<div id="adminContent">
+        
+    <div id="sidebar">
+        <div class="sidebar_content sidebar_head">
+            <h1>Admin</h1>
+        </div>
 
+        <div class="sidebar_content sidebar_body">
+            <nav class="side_navlinks">
+                <ul>
+                    <li><a href="http://localhost:8080/falcon_backend/admin-pannel-code/admin-code/admin.php">DashBoard</a></li>
+                    <li><a href="http://localhost:8080/falcon_backend/crudapp/">Add Employees</a></li>
+                    <li><a href="http://localhost:8080/falcon_backend/products/index.php">Add products</a></li>
+                    <li><a href="http://localhost:8080/falcon_backend/admin-pannel-code/admin-code/view_orders.php">View Order's</a></li>
+                   <li> <button id="logout-btn"  onclick="logout()">Logout</button></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div>

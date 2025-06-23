@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php include('header.php') ; ?>
-
+<?php include('graph_script.php');?>
 
 <head>
     <meta charset="UTF-8">
@@ -11,15 +11,15 @@
 
     <style>
         /* General Page Styling */
-        body {
+        /* body {
             font-family: 'Poppins', sans-serif;
             padding: 20px;
-            max-width: 1600px;
+            max-width: 1600px; */
             /* Increased overall page width */
-            margin: auto;
-            background-color: #f4f7f6;
+            /* margin: auto;
+            background-color:rgb(71, 107, 95);
             color: #333;
-        }
+        } */
 
         #loginForm {
             background: linear-gradient(to bottom right, #ffffff, #e3f2fd);
@@ -78,9 +78,8 @@
         }
 
         h1 {
-            text-align: center;
-            color: #007bff;
-            font-weight: bold;
+            text-align: left;
+            color: black;
         }
 
        
@@ -179,9 +178,7 @@
 
 
 </head>
-
 <body>
-    
     <h1 id="pageTitle">Falcon Dynamic Admin Pannel</h1>
 
     <form id="loginForm">
@@ -190,14 +187,44 @@
         <input type="password" id="loginPassword" placeholder="Password" required>
         <button type="submit">Login</button>
     </form>
-    <div id="adminContent">
+    <!-- side navbar start -->
+<div id="adminContent">
+        
+    <div id="sidebar">
+        <div class="sidebar_content sidebar_head">
+            <h1>Admin</h1>
+        </div>
+
+        <div class="sidebar_content sidebar_body">
+            <nav class="side_navlinks">
+                <ul>
+                    <li><a href="http://localhost:8080/falcon_backend/admin-pannel-code/admin-code/admin.php">DashBoard</a></li>
+                    <li><a href="http://localhost:8080/falcon_backend/crudapp/">Add Employees</a></li>
+                    <li><a href="http://localhost:8080/falcon_backend/products/index.php">Add products</a></li>
+                    <li><a href="http://localhost:8080/falcon_backend/admin-pannel-code/admin-code/view_orders.php">View Order's</a></li>
+                   <li> <button  onclick="logout()">Logout</button></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+                    
+
+ <!-- <div id="adminContent">
         <a href="http://localhost:8080/falcon_backend/crudapp/"  class="btn btn-success">Add Employees</a>
         <a href="http://localhost:8080/falcon_backend/products/index.php" class="btn btn-primary">Add products</a>
         <a href="view_orders.php" class="btn btn-info">View Order's</a>
         <button  class="btn btn-danger" onclick="logout()">Logout</button>
         <div class="button">
-        </div>
-        <h1>Admin Panel - Orders</h1>
+        </div> -->
+
+
+
+
+    <!-- side navbar ending -->
+    
+    
+        <!-- <h1>Admin Panel - Orders</h1> -->
         <div id="loading"></div>
         <table id="ordersTable" style="display: none;">
              <header id="header" class="header">
@@ -206,32 +233,38 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="text-container">
-                            <h1><span class="turquoise">FALCON DYNAMIC ENGINEERING</span><br> We Ignite The Future</h1>
-                            <p class="p-large">FDE Works is provided professional Industrial Sevcies in Electrical and
-                                Mechanical Engineering fields. FDE provide Automation, Electrical Works, Mechanical
-                                Works and Heating Solutions for Industries.</p>
-                            <a class="btn-solid-lg page-scroll" href="#services">DISCOVER</a>
-                        </div> <!-- end of text-container -->
-                    </div> <!-- end of col -->
-                    <div class="col-lg-6">
-                        <div class="image-container">
-                            <img class="img-fluid" src="images/header-teamwork.svg" alt="alternative">
-                        </div> <!-- end of image-container -->
-            <!-- <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Customer Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>State</th> 
-                    <th>Zone Code</th> 
-                    <th>Order Details</th>
-                    <th>Total Price</th>
-                    <th>Order Date</th>
-                    <th>Actions</th>
-                </tr>
-            </thead> -->
+                            
+         
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
+ 
 
             <tbody></tbody>
         </table>
@@ -276,8 +309,8 @@
                 localStorage.setItem("adminLoggedIn", "true");
                 // Show Admin Panel & Hide Login Form
                 loginForm.style.display = "none";
-                adminContent.style.display = "block";
                 fetchOrders();
+
             } else {
                 alert("Invalid login credentials!");
             }
@@ -285,49 +318,12 @@
 
         function logout() {
             localStorage.removeItem("adminLoggedIn");
-
             // Reset UI
             adminContent.style.display = "none";
             loginForm.style.display = "block";
+            
         }
-        // async function fetchOrders() {
-        //     try {
-        //         loadingElement.style.display = "block";
-        //         let orders = await pb.collection('orders').getFullList();
-        //         orders.sort((a, b) => new Date(b.orderDate) - new Date(a.orderDate));
-
-        //         tableBody.innerHTML = '';
-        //         loadingElement.style.display = "none";
-
-        //         orders.forEach(order => {
-        //             const row = document.createElement('tr');
-        //             row.innerHTML = `
-        //         <td>${order.id}</td>
-        //         <td>${order.name}</td>
-        //         <td>${order.email}</td>
-        //         <td>${order.phone}</td>
-        //         <td>${order.address}</td>
-        //         <td>${order.state || 'N/A'}</td>   <!-- Fetch State -->
-        //         <td>${order.zonecode}</td> <!-- Fetch Zone Code -->
-        //         <td id="cart-${order.id}">${formatOrderDetails(order.cart)}</td>
-        //         <td id="price-${order.id}">$${order.totalPrice.toFixed(2)}</td>
-        //         <td>${new Date(order.orderDate).toLocaleString()}</td>
-        //         <td class="button-group">
-        //             <button class="editOrder" id="edit-${order.id}" onclick="editOrder('${order.id}', '${encodeURIComponent(JSON.stringify(order.cart))}', ${order.totalPrice})">Edit</button>
-        //             <button class="deleteOrder" onclick="deleteOrder('${order.id}')">Delete</button>
-        //             <button class="saveOrder" id="save-${order.id}" style="display:none" onclick="saveOrder('${order.id}')">Save</button>
-        //             <button class="sendEmail" id="sendEmail-${order.id}" style="display:none" onclick="sendConfirmationEmail('${order.id}', '${order.email}')">Send Email</button>
-        //         </td>
-        //     `;
-        //             tableBody.appendChild(row);
-        //         });
-
-        //         ordersTable.style.display = 'table';
-        //     } catch (err) {
-        //         console.error('Error fetching orders:', err);
-        //         alert("Failed to fetch orders. Make sure PocketBase is running!");
-        //     }
-        // }
+       
 
         function formatOrderDetails(cart) {
             if (!Array.isArray(cart) || cart.length === 0) {
@@ -436,6 +432,8 @@
         }, 10000);
         </script>
         <?php include('footer.php') ; ?>
+            <script src="./main.js"></script>
+
     </body>
 
 </html>
