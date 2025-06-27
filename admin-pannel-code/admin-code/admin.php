@@ -2,6 +2,7 @@
 <html lang="en">
     <?php include('header.php') ; ?>
 <?php include('graph_script.php');?>
+<?php include('dbcon.php');?>
 
 <head>
     <meta charset="UTF-8">
@@ -179,7 +180,7 @@
 
 </head>
 <body>
-    <h1 id="pageTitle">Falcon Dynamic Admin Pannel</h1>
+        <h1 id="main_title">FALCON DYNAMIC ENGINEERING</h1>
 
     <form id="loginForm">
         <h2>Login</h2>
@@ -234,35 +235,57 @@
                     <div class="col-lg-6">
                         <div class="text-container">
                             
-         
-<div>
-  <canvas id="myChart"></canvas>
-</div>
-
+         <h2>Employees data</h2>
+<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-  const ctx = document.getElementById('myChart');
+const fetchOrders = () => {
+  // Fetch data from PHP script
+  fetch("dbcon.php")
+    .then(res => res.json())
+    .then(data => {
+      // Extract data from JSON
+      console.log("Data from server:", data);
+      
+      // Define labels and counts
+      const labels = ['Employees', 'Products']; // Labels for the pie chart
+      const counts = [data.total_employees, data.total_products]; // Values for the chart
 
-  new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+      // Create the chart
+      const ctx = document.getElementById('myChart').getContext('2d');
+      const myChart = new Chart(ctx, {
+        type: 'pie', // Pie chart, you can also change it to 'bar' or 'doughnut'
+        data: {
+          labels: labels, // Pass the labels
+          datasets: [{
+            label: 'Total Counts',
+            data: counts, // Use the counts for employees and products
+            backgroundColor: ['rgba(54, 162, 235, 0.5)', 'rgba(255, 99, 132, 0.5)'], // Color for each section
+            borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'], // Border color
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true, // Make the chart responsive
+          plugins: {
+            legend: {
+              position: 'top', // Legend at the top
+            }
+          }
         }
-      }
-    }
-  });
+      });
+    })
+    .catch(err => {
+      console.error("Error fetching data:", err); // Catch any error from the fetch call
+    });
+}
+
+// Call the function after defining it
+fetchOrders();
 </script>
+
+
 
  
 

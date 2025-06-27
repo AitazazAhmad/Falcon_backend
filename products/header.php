@@ -11,4 +11,15 @@
 </head>
 
 <body>
+        <h1 id="main_title">FALCON DYNAMIC ENGINEERING</h1>
             <script src="../admin-pannel-code/admin-code/main.js"></script>
+            <style>
+                #main_title
+{
+    text-align: center;
+  background-color: white;
+  color: black;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+            </style>
