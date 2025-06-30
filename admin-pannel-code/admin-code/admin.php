@@ -2,7 +2,7 @@
 <html lang="en">
     <?php include('header.php') ; ?>
 <?php include('graph_script.php');?>
-<?php include('dbcon.php');?>
+
 
 <head>
     <meta charset="UTF-8">
@@ -249,28 +249,36 @@ const fetchOrders = () => {
       console.log("Data from server:", data);
       
       // Define labels and counts
-      const labels = ['Employees', 'Products']; // Labels for the pie chart
-      const counts = [data.total_employees, data.total_products]; // Values for the chart
+      const labels = ['# of Employees', '# of Products' , '# of orders']; // Labels for the pie chart
+      const counts = [data.total_employees, data.total_products  ,data.total_check_out]; // Values for the chart
 
       // Create the chart
       const ctx = document.getElementById('myChart').getContext('2d');
       const myChart = new Chart(ctx, {
-        type: 'pie', // Pie chart, you can also change it to 'bar' or 'doughnut'
+        type: 'pie', 
         data: {
-          labels: labels, // Pass the labels
+          labels: labels, 
           datasets: [{
             label: 'Total Counts',
-            data: counts, // Use the counts for employees and products
-            backgroundColor: ['rgba(54, 162, 235, 0.5)', 'rgba(255, 99, 132, 0.5)'], // Color for each section
-            borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'], // Border color
+            data: counts, 
+           backgroundColor: [
+              'rgba(54, 162, 235, 0.5)', // Employees
+              'rgba(255, 99, 132, 0.5)', // Products
+              'rgba(255, 206, 86, 0.5)'  // Orders
+            ],
+            borderColor: [
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 99, 132, 1)',
+              'rgba(255, 206, 86, 1)'
+            ],
             borderWidth: 1
           }]
         },
         options: {
-          responsive: true, // Make the chart responsive
+          responsive: true, 
           plugins: {
             legend: {
-              position: 'top', // Legend at the top
+              position: 'top', 
             }
           }
         }

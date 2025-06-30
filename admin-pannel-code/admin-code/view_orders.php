@@ -1,5 +1,5 @@
 <?php session_start(); 
-include('dbcon.php'); ?>
+// include('dbcon.php'); ?>
 <?php include('header.php') ;?>
      <h1 id="main_title">FALCON DYNAMIC ENGINEERING</h1>
 <div id="adminContent">
